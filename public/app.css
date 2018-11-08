@@ -1,0 +1,53 @@
+header {
+  display: flex;
+  align-items: center;
+
+}
+main {
+  background-image: url(https://www.ifa.hawaii.edu/info/press-releases/Oumuamua/1I_eso_artistimpression_sm.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+th {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+form {
+  width: 100px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+#button {
+  min-width: 150px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+#subheader {
+  font-size: 15px;
+}
+#formDiv {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  background-image: url(https://thumbs.gfycat.com/BeautifulReadyFairyfly-small.gif);
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  height: 220px;
+  width: 250px;
+}
