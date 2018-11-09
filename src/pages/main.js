@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'react-bootstrap'
 import neoData from '../sample-neo.json'
+import Header from '../components/header.js'
 
 
 
@@ -20,7 +21,7 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    this.newFetch()
+    this.newFetch(this.state.index)
   }
 
   render() {
@@ -28,9 +29,8 @@ class Main extends Component {
     let { uom1, uom2, index } = this.state
     return (
       <main>
-        <header>
-          <div className="image"></div>
-          <h1 className="text-muted">Near Earth Objects</h1>
+        <header className="headerNavbar">
+          <Header changeData={this.changeData} getData={this.getData} toggleUOM={this.toggleUOM} />
         </header>
         <Table>
           <thead>
@@ -70,26 +70,15 @@ class Main extends Component {
             </form>
           </div>
           <div id="buttons">
-            <button className="btn btn-warning" id="button" onClick={this.toggleUOM}>Imperial</button>
-            <button className="btn btn-warning" id="button" onClick={this.toggleUOM}>Metric</button>
+            <button className="btn btn-warning" id="button" onClick={this.toggleUOM}>Imperial/Metric</button>
           </div>
       </main>
     );
   }
 
-  changeDate = (e) => {
-    console.log('changing date');
-    console.log(e.target.value);
-    this.setState({startDate: e.target.value})
-  }
-
-  newFetch(){
+  newFetch(newIndex){
     console.log('fetch request');
-    // console.log(newDate);
-    let { uom1, uom2, index } = this.state
-    let a = uom1[index]
-    let b = uom2[index]
-    console.log(a);
+    let { uom1, uom2 } = this.state
     // Get hold of the part of the response we are interested in
     fetch("https://api.nasa.gov/neo/rest/v1/feed?"+`start_date=${this.state.startDate}&api_key=${this.state.api_key}`).then((rawResponse)=>{
       return rawResponse.json()
@@ -103,34 +92,39 @@ class Main extends Component {
           id: asteroid.neo_reference_id,
           name: asteroid.name,
           date: asteroid.close_approach_data[0].close_approach_date,
-          diameterMin: asteroid.estimated_diameter[a].estimated_diameter_min.toFixed(0),
-          diameterMax: asteroid.estimated_diameter[a].estimated_diameter_max.toFixed(0),
-          closestApproach: asteroid.close_approach_data[0].miss_distance[b],
-          velocity: parseFloat(asteroid.close_approach_data[0].relative_velocity[b+'_per_hour']).toFixed(0),
-          distance: asteroid.close_approach_data[0].miss_distance[b],
+          diameterMin: asteroid.estimated_diameter[uom1[newIndex]].estimated_diameter_min.toFixed(0),
+          diameterMax: asteroid.estimated_diameter[uom1[newIndex]].estimated_diameter_max.toFixed(0),
+          closestApproach: asteroid.close_approach_data[0].miss_distance[uom2[newIndex]],
+          velocity: parseFloat(asteroid.close_approach_data[0].relative_velocity[uom2[newIndex]+'_per_hour']).toFixed(0),
+          distance: asteroid.close_approach_data[0].miss_distance[uom2[newIndex]],
 
         })
       })
     })
-    this.setState({asteroids: newAsteroids,index: index})
+    let sortedAsteriods = newAsteroids.sort(function(a,b){
+      return new Date(b.date) - new Date(a.date);
+    }).reverse()
+    this.setState({asteroids: sortedAsteriods,index: newIndex})
     })
   }
 
   getData = (e) => {
     e.preventDefault()
-    console.log(e);
-    this.newFetch()
+    this.newFetch(this.state.index)
+  }
+
+  changeDate = (e) => {
+    this.setState({startDate: e.target.value})
   }
 
   toggleUOM = () => {
     let { index } = this.state
     if(index === 1){
-    this.setState({index: 0})
+    this.newFetch(0)
     }else{
-      this.setState({index: 1})
+      this.newFetch(1)
     }
   }
-
 }
 
 export default Main;

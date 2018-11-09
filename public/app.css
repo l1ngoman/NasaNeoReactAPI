@@ -1,14 +1,12 @@
 header {
   display: flex;
   align-items: center;
-
 }
 main {
   background-image: url(https://www.ifa.hawaii.edu/info/press-releases/Oumuamua/1I_eso_artistimpression_sm.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 100vh;
 }
 th {
   font-size: 30px;
@@ -44,10 +42,26 @@ form {
   justify-content: center;
 }
 .image {
-  background-image: url(https://thumbs.gfycat.com/BeautifulReadyFairyfly-small.gif);
+  background-image: url(https://worldwind.arc.nasa.gov/agrosphere/images/nasa.gif);
   background-position: center;
   background-size: auto;
   background-repeat: no-repeat;
-  height: 220px;
-  width: 250px;
+  height: 130px;
+  width: 345px;
+}
+.headerNavbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchBar {
+  display: flex;
+  text-align: center;
+  color: grey;
+}
+.searchBar2 {
+  border: 1px solid grey;
+  background-color: rgba(0,0,0,.8);
+  min-height: 37px;
 }
