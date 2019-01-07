@@ -30,7 +30,7 @@ class Main extends Component {
     return (
       <main>
         <header className="headerNavbar">
-          <Header changeData={this.changeData} getData={this.getData} toggleUOM={this.toggleUOM} />
+          <Header changeDate={this.changeDate} getData={this.getData} toggleUOM={this.toggleUOM} />
         </header>
         <Table>
           <thead>
@@ -63,15 +63,6 @@ class Main extends Component {
             })}
           </tbody>
           </Table>
-          <div id="formDiv">
-            <form onSubmit={this.getData}>
-              <input type="date" name="date" onChange={this.changeDate}/>
-              <input type="submit" />
-            </form>
-          </div>
-          <div id="buttons">
-            <button className="btn btn-warning" id="button" onClick={this.toggleUOM}>Imperial/Metric</button>
-          </div>
       </main>
     );
   }
