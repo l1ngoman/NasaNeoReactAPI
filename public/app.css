@@ -9,6 +9,7 @@ html {
 header {
   display: flex;
   align-items: center;
+  background-color: rgba(0,0,0,.6);
 }
 main {
   background-image: url(https://www.ifa.hawaii.edu/info/press-releases/Oumuamua/1I_eso_artistimpression_sm.jpg);
@@ -18,15 +19,17 @@ main {
   background-color: black;
 }
 th {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
+  background-color: rgba(0,0,0,.6);
 }
 
 td {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
+  background-color: rgba(0,0,0,.6);
 }
 
 form {
