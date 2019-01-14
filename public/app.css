@@ -18,15 +18,8 @@ main {
   background-repeat: no-repeat;
   background-color: black;
 }
-th {
+th, td {
   font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  background-color: rgba(0,0,0,.6);
-}
-
-td {
-  font-size: 22px;
   font-weight: bold;
   text-align: center;
   background-color: rgba(0,0,0,.6);
@@ -36,7 +29,7 @@ form {
   width: 100px;
 }
 
-#buttons {
+#xCenter {
   display: flex;
   justify-content: center;
 }
@@ -47,7 +40,7 @@ form {
   text-align: center;
 }
 #subheader {
-  font-size: 15px;
+  font-size: 10px;
 }
 #formDiv {
   display: flex;
@@ -63,12 +56,13 @@ form {
 }
 .headerNavbar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .searchBar {
   display: flex;
+  align-items: center;
   text-align: center;
   color: grey;
 }
@@ -78,8 +72,55 @@ form {
   border: 1px solid grey;
   background-color: rgba(0,0,0,.8);
   min-height: 37px;
-  min-width: 60px;
+  width: 175px;
 }
 .uomButton {
   width: 75px;
+}
+
+.submit {
+  border: 1px solid grey;
+  background-color: rgba(0,0,0,.8);
+  min-height: 37px;
+  width: 50px;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  width: 230px;
+}
+
+.navbar-nav{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (max-width: 1250px){
+  th, td {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 730px){
+  th, td {
+    font-size: 10px;
+  }
+  #subheader {
+    font-size: 7px;
+  }
+  .uomButton {
+    width: 60px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px){
+  th, td {
+    font-size: 7px;
+  }
+  #subheader {
+    font-size: 5px;
+  }
 }

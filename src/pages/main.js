@@ -36,8 +36,8 @@ class Main extends Component {
           <thead>
             <tr>
               <th className="text-primary">Name</th>
-              <th className="text-warning">Estimated Diameter</th>
-              <th className="text-danger">Date of Closest Approach</th>
+              <th className="text-warning">Est. Diameter</th>
+              <th className="text-danger">Closest Approach</th>
               <th className="text-success">Distance</th>
               <th className="text-info">Velocity</th>
             </tr>
